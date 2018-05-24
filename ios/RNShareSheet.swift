@@ -17,12 +17,12 @@ class ShareSheet: NSObject {
       callback([NSNull(), ["status":"OK"]])
     }
     
-    let fail: (msg: String) -> Void = { msg in
+    let fail: (msg) -> Void = { msg in
       callback([msg, NSNull()])
     }
     
     // do share
-    let shareWithImage: (imageUrl: String, image: UIImage?) -> Void = { [unowned self] imageUrl, image in
+    let shareWithImage: (imageUrl, image) -> Void = { [unowned self] imageUrl, image in
       if image == nil {
         fail(msg: "Error loading image at: \(imageUrl)")
       } else {
